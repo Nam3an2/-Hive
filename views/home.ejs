@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs'); -%>
+
+    <body>
+
+        <h1>
+            Home
+        </h1>
+        <p>
+            <div class="c1">
+                <%= StartingContent %>
+            </div>
+
+            <%   posts.forEach(function(post){ %>
+                <h3>
+                    <%= post.title %>
+                </h3>
+                <p>
+                    <% var myTruncatedPost = post.content.substring(0,100) + "..." %>
+                        <%= myTruncatedPost %>
+                            <% var add = "/posts/"+post.title %>
+                                <a href="/posts/<%= post._id%>">Read More</a>
+                </p>
+
+                <% });%>
+        </p>
+
+        <button><a class="nav-link active" href="/compose">ADD</a></button>
+
+
+    </body>
+
+    <%- include('partials/footer.ejs'); -%>
